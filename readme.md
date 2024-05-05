@@ -1,8 +1,8 @@
-# Nvim Configuration
+# Neovim Configuration
 
-This repository contains an nvim configuration with my own personal preferences.
+This repository contains a Neovim configuration with my own personal preferences.
 
-The goal is to configure Vim into a full-featured IDE for programming languages (and other structured files) I use frequently:
+The goal is to configure Neovim into a full-featured IDE for programming languages (and other structured files) I use frequently:
 - Rust (& toml)
 - .NET (& xml)
 - Lua
