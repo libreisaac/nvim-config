@@ -12,8 +12,6 @@ The goal is to configure Vim into a full-featured IDE for programming languages 
 - CSS
 - Markdown
 
-It's a work in progress, but will eventually contain:
-
 ## Configuration Files
 - `./init.lua` whose job it is to import all the other lua configuration
 - `./lua/` which contains all of the lua configuration files and plugins
