@@ -32,3 +32,10 @@ A plugin for a directory tree displayed in the sidebar, bound by default to `<Le
 - `./lua/nvim-tree-git` cloned git repository with desired version checked out for the nvim-tree plugin
 - `./lua/nvim-tree` synlink to the relevant nvim-tree plugin contents
 - `./lua/nvim-tree.lua` symlink to the relevant nvim-tree plugin root file
+
+## Installation
+To install this nvim configuration, simply install nvim, then run `cd ~/.config`, and `git clone https://github.com/libreisaac/nvim-config nvim`, to `clone` the `nvim-config` github repository under the `libreisaac` account into the `nvim` directory.
+
+Note: the clone will fail if you already have a non-empty `~/.config/nvim` directory; rename your current config to `nvim.old/` or similar and manually port over any configuration you want to keep.
+
+It's strongly recommended you fork the repository and maintain your own changes via git too.
