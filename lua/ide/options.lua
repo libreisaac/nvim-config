@@ -29,6 +29,7 @@ local set_options = {
     preserveindent = true,                                                 -- When changing the indentation of a line, maintain the current indentation structure (tabs vs spaces) as best as possible
     pumblend = 10,                                                         -- Pop up menu transparency; 0 is opaque, 100 is transparent
     pumheight = 10,                                                        -- Maximum number of rows to show in pop up menu; 0 will use as much space as possible
+    relativenumber = true,                                                 -- Display line numbers relative to the cursor; useful for various commands
     pumwidth = 30,                                                         -- Number of columns to show in the pop up menu; if larger than available space, the menu will be nudged left to allow for it to be displayed
     ruler = true,                                                          -- Display cursor position
     scrollback = 1000,                                                     -- Terminal line scrollback availability (default is 10,000)
