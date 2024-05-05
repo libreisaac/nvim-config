@@ -2,17 +2,17 @@
 
 Edit `/etc/portage/package.use`, adding:
 ```
-\# Neovim (IDE)
+# Neovim (IDE)
 app-editors/neovim -lua_single_target_5-4 lua_single_target5-1 python
 dev-lua/luv -lua_single_target_5-4 lua_single_target5-1
 ```
-Note: The `-` USE flag assumes a Gentoo environment built via [this guide](https://github.com/libreisaac/gentoo-installation-guide-resources); you may not need the `lua` target flags, or may need to subtract a different one depending on the `LUA_SINGLE_TARGET` in your `make.conf`.
+Note: The `-` USE flag assumes a Gentoo environment built via [this guide](https://github.com/libreisaac/gentoo-installation-guide-resources); you may not need the `lua_single_targetX-X` flags, or may need to subtract a different one depending on the `LUA_SINGLE_TARGET` in your `make.conf`.
 
-Run `emerge --ask app-editors/neovim app-shells/fzf` to compile and install neovim and fzf, which is a fuzzy finder application you can run from the terminal, which we'll be making heavy use of inside neovim.
+Run `emerge --ask app-editors/neovim app-shells/fzf` to compile and install `neovim` and `fzf`, which is a fuzzy finder application you can run from the terminal, which we'll be making heavy use of inside `neovim`.
 
 Move to your `.config` directory with `cd ~/.config`, then clone this repository into a folder named `nvim`  with `git clone --recurse-submodules https://github.com/libreisaac/nvim-config nvim`.
 
-Now `cd nvim`, and run `git tag` to list available versions of this config. Pick the latest (or any other version you like), and run `git checkout [tag]` (eg: `git checkout 0.0.1`) to check out that version.
+Now `cd nvim`, and run `git tag` to list available versions of this config. Pick the latest (or any other version you like), and run `git checkout [tag]` (eg: `git checkout 0.0.1`) to checkout that version.
 
 In the future, you can run `git pull`, `git tag`, and `git checkout X` in this directory to check for, and update to, new versions. `git diff 0.0.1 0.0.2` would show you all the changes between tags `0.0.1` and `0.0.2`.
 
