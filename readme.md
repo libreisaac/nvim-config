@@ -19,7 +19,7 @@ The goal is to configure Neovim into a full-featured IDE for programming languag
         - `./lua/ide/styles.lua` visual style tweaks
         - `./lua/ide/options.lua` configure all core nvim options
         - `./lua/ide/keymaps.lua` all globally applied keybindings (including autoformat logic)
-        - `./lua/ide/autocmds.lua` an index for autocommands which are broken up in the directory of the same name`
+        - `./lua/ide/autocmds.lua` an index for autocommands which are broken up inside the directory of the same name
         - `./lua/ide/autocmds/terminal.lua` autocommands run when entering a terminal
 
 ## Plugins
