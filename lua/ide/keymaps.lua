@@ -37,4 +37,7 @@ vim.keymap.set("n", "G", "G$", { silent = true })
 
 -- Custom Chords
 vim.keymap.set("n", "<Leader>rt", function() toggle("relativenumber") end, options)
+vim.keymap.set("n", "<Leader>t", ":terminal<CR>", options)
 vim.keymap.set("n", "<Leader>f", auto_format, options)
+vim.keymap.set("t", "<Esc>", "<C-u>exit<CR>", options)
+vim.keymap.set("n", "<Leader>s", ":FZF<CR>", options)
