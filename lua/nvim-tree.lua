@@ -1,0 +1,1 @@
+./nvim-tree-git/lua/nvim-tree.lua
