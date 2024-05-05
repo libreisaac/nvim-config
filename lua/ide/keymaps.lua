@@ -37,6 +37,4 @@ vim.keymap.set("n", "G", "G$", { silent = true })
 
 -- Custom Chords
 vim.keymap.set("n", "<Leader>rt", function() toggle("relativenumber") end, options)
-vim.keymap.set("n", "<Leader>e", ":NvimTreeToggle<CR>", options)
-vim.keymap.set("n", "<Leader>s", ":find ./**/*", options)
 vim.keymap.set("n", "<Leader>f", auto_format, options)

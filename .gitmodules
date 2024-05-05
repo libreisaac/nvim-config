@@ -1,3 +1,0 @@
-[submodule "nvim-tree-git"]
-	path = lua/nvim-tree-git
-	url = https://github.com/nvim-tree/nvim-tree.lua
