@@ -25,17 +25,13 @@ It's a work in progress, but will eventually contain:
         - `./lua/ide/autocmds/terminal.lua` autocommands run when entering a terminal
 
 ## Plugins
-No plugin manager is used; instead, plugins' git repositores are cloned as submodules, and required symlinks are created manually.
-
-### Nvim-Tree
-A plugin for a directory tree displayed in the sidebar, bound by default to `<Leader>e`.
-- `./lua/nvim-tree-git` cloned git repository with desired version checked out for the nvim-tree plugin
-- `./lua/nvim-tree` synlink to the relevant nvim-tree plugin contents
-- `./lua/nvim-tree.lua` symlink to the relevant nvim-tree plugin root file
+No plugin manager is used; instead, plugins' git repositores are cloned as submodules inside the `lua` folder, and symlinks (`ln -s ./whatever/the/path/is.lua ./is.lua`) are used for necessary files and directories.
 
 ## Installation
-To install this nvim configuration, simply install nvim, then run `cd ~/.config`, and `git clone https://github.com/libreisaac/nvim-config nvim`, to `clone` the `nvim-config` github repository under the `libreisaac` account into the `nvim` directory.
+To install this nvim configuration, simply install nvim, then run `cd ~/.config`, and `git clone --recurse-submodules https://github.com/libreisaac/nvim-config nvim`, to `clone` the `nvim-config` github repository under the `libreisaac` account into the `nvim` directory. The `--recurse-submodules` argument also clones the submodules, which is necessary for the plugins included in the configuration.
 
 Note: the clone will fail if you already have a non-empty `~/.config/nvim` directory; rename your current config to `nvim.old/` or similar and manually port over any configuration you want to keep.
 
 It's strongly recommended you fork the repository and maintain your own changes via git too.
+
+A more in-depth guide can be found [here](./gentoo-guide.md), but note that it's written specifically for people who are using a Gentoo environment based on my Gentoo installation guide; others may find some utility in reading it, and skipping over the `Portage` and `Sway` bits.

@@ -1,0 +1,3 @@
+[submodule "lua/nvim-fzf-git"]
+	path = lua/nvim-fzf-git
+	url = https://github.com/vijaymarupudi/nvim-fzf

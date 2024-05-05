@@ -1,3 +1,6 @@
+-- Plugins
+require "fzf"
+
 -- Configuration
 require "ide.autocmds"
 require "ide.options"
