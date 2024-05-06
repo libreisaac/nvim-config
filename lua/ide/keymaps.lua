@@ -19,7 +19,9 @@ local function toggle(option)
     return new_value
 end
 
-local options = { noremap = true, silent = true }
+local function options(description)
+    return { noremap = true, silent = true, desc = description }
+end
 
 -- Autoformatting
 local function auto_format()
@@ -36,8 +38,28 @@ vim.keymap.set("n", "gg", "gg0", { silent = true })
 vim.keymap.set("n", "G", "G$", { silent = true })
 
 -- Custom Chords
-vim.keymap.set("n", "<Leader>rt", function() toggle("relativenumber") end, options)
-vim.keymap.set("n", "<Leader>t", ":terminal<CR>", options)
-vim.keymap.set("n", "<Leader>f", auto_format, options)
-vim.keymap.set("t", "<Esc>", "<C-u>exit<CR>", options)
-vim.keymap.set("n", "<Leader>s", ":FZF<CR>", options)
+vim.keymap.set("n", "<Leader>rt", function() toggle("relativenumber") end, options("Toggle relative line numbers"))
+vim.keymap.set("n", "<Leader>f", auto_format, options("Autoformat all files in the working directory"))
+vim.keymap.set("n", "<Leader>t", ":terminal<CR>", options("Open a terminal"))
+vim.keymap.set("t", "<Esc>", "<C-u>exit<CR>", options("Exit the terminal"))
+-- Fuzzy Find Chords
+local fzf = require("fzf-lua")
+vim.keymap.set("n", "<Leader>sC", fzf.command_history, options("Search for command from history"))
+vim.keymap.set("n", "<Leader>sl", fzf.blines, options("Search for a line in the current buffer"))
+vim.keymap.set("n", "<Leader>sP", fzf.loclist, options("Search for a place/location (stack)"))
+vim.keymap.set("n", "<Leader>sL", fzf.lines, options("Search for a line in all buffers"))
+vim.keymap.set("n", "<Leader>sc", fzf.colorschemes, options("Search for colour scheme"))
+vim.keymap.set("n", "<Leader>sF", fzf.oldfiles, options("Search for file from history"))
+vim.keymap.set("n", "<Leader>sQ", fzf.quickfix, options("Search for quick fix (stack)"))
+vim.keymap.set("n", "<Leader>sp", fzf.loclist, options("Search for a place/location"))
+vim.keymap.set("n", "<Leader>sk", fzf.keymaps, options("Search for key mappings"))
+vim.keymap.set("n", "<Leader>sq", fzf.quickfix, options("Search for quick fix"))
+vim.keymap.set("n", "<Leader>sh", fzf.helptags, options("Search for help tag"))
+vim.keymap.set("n", "<Leader>sc", fzf.commands, options("Search for command"))
+vim.keymap.set("n", "<Leader>sb", fzf.buffers, options("Search for a buffer"))
+vim.keymap.set("n", "<Leader>sf", fzf.files, options("Search for a file"))
+vim.keymap.set("n", "<Leader>sa", fzf.args, options("Search for an arg"))
+vim.keymap.set("n", "<Leader>st", fzf.tabs, options("Search for a tab"))
+-- Fuzzy Find Autocomplete
+local autocomplete_modes = { "n", "v", "i", }
+vim.keymap.set(autocomplete_modes, "<C-s><C-f>", fzf.complete_path, options("Insert a file path"))

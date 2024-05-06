@@ -1,5 +1,5 @@
 -- Plugins
-require "fzf"
+require "fzf-lua".setup({"fzf-native"})
 
 -- Configuration
 require "ide.autocmds"

@@ -3,12 +3,15 @@
 Edit `/etc/portage/package.use`, adding:
 ```
 # Neovim (IDE)
-app-editors/neovim -lua_single_target_5-4 lua_single_target5-1 python
-dev-lua/luv -lua_single_target_5-4 lua_single_target5-1
+app-editors/neovim -lua_single_target_lua5-4 lua_single_target_luajit python
+dev-lua/luv -lua_single_target_lua5-4 lua_single_target_luajit
 ```
+
+Then edit `/etc/portage/make.conf`, adding `luajit` to `LUA_TARGETS="lua5-4"` (eg: `LUA_TARGETS="lua5-4 luajit"`).
+
 Note: The `-` USE flag assumes a Gentoo environment built via [this guide](https://github.com/libreisaac/gentoo-installation-guide-resources); you may not need the `lua_single_targetX-X` flags, or may need to subtract a different one depending on the `LUA_SINGLE_TARGET` in your `make.conf`.
 
-Run `emerge --ask app-editors/neovim app-shells/fzf` to compile and install `neovim` and `fzf`, which is a fuzzy finder application you can run from the terminal, which we'll be making heavy use of inside `neovim`.
+Run `emerge --ask app-editors/neovim app-shells/fzf sys-apps/bat` to compile and install `neovim`, `bat`, which is like `cat` with syntax highlighting and `git` integration, and `fzf`, which is a fuzzy finder application you can run from the terminal, which we'll be making heavy use of inside `neovim`.
 
 Move to your `.config` directory with `cd ~/.config`, then clone this repository into a folder named `nvim`  with `git clone --recurse-submodules https://github.com/libreisaac/nvim-config nvim`.
 
@@ -32,6 +35,6 @@ Space then `f` will try to detect what kind of workspace you're in, based on the
 
 Space then `t` will open a terminal, where you can run commands like any other terminal, and hit `Escape` to exit.
 
-Space then `s` will open the fuzzy finder, where you can search for files and hit `Enter` to open the currently highlighted file.
+TODO: FUZZYFINDER
 
 Finally, you may want to modify your `.config/sway/config` file, and add `xkb_options caps:escape` to your `input *` selector, where your keyboard layout is set, to override the `CapsLock` key's behaviour to `ESC`. This will change the behaviour system-wide, but `CapsLock` is a pretty useless key in my opinion. `ESC` is used fairly frequently, in neovim, and all over your Linux system in general, and making it more accessible is a great idea. If you _really_ want access to `CapsLock`, you could always map it to `ESC`! 
