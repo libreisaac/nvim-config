@@ -18,7 +18,9 @@ vim.keymap.set("n", "gg", "gg0", { silent = true })
 vim.keymap.set("n", "G", "G$", { silent = true })
 
 -- Custom Chords
+vim.keymap.set("n", "<Leader>e", function() require("ranger-nvim").open(true) end, options("Open ranger file explorer"))
 vim.keymap.set("n", "<Leader>rt", function() toggle("relativenumber") end, options("Toggle relative line numbers"))
+vim.keymap.set({ "n", "v", "x" }, "<Leader>q", ":q<CR>:redraw<CR>", options("Close the current buffer"))
 vim.keymap.set("n", "<Leader>u", ":UndotreeToggle<CR>:UndotreeFocus<CR>", options("Toggle undo tree"))
 vim.keymap.set({ "n", "v", "x" }, "<S-Tab>", "<:redraw<CR>", options("Decrease indent"))
 vim.keymap.set({ "n", "v", "x" }, "<Tab>", ">:redraw<CR>", options("Increase indent"))
