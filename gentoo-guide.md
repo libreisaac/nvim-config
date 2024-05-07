@@ -33,8 +33,6 @@ Check what each of the files is doing; the code is fairly self-explanatory, even
 
 If, while in normal mode (which is accessed with `ESC`), you hit the spacebar, then type `rt`, the line numbers in the currently focused buffer will toggle between relative and absolute modes. Absolute mode displays the actual line number, while relative mode displays the line number relative to your cursor, which is useful for various nvim commands.
 
-Space then `f` will try to detect what kind of workspace you're in, based on the contents of the working directory, and run some format commands like `cargo fmt` to format any relevant files in the current working directory, and its children.
-
 Space then `t` will open a terminal, where you can run commands like any other terminal, and hit `Escape` to exit.
 
 TODO: FUZZYFINDER

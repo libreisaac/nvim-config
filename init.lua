@@ -11,7 +11,8 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
   })
 end
 vim.opt.rtp:prepend(lazypath)
-require("lazy").setup({
+local lazy_vim = require("lazy")
+lazy_vim.setup({
     {
         "ibhagwan/fzf-lua",
         dependencies = { "nvim-tree/nvim-web-devicons" },
@@ -58,8 +59,12 @@ require("lazy").setup({
             sync_install = false,
             highlight = { enable = true },
             indent = { enable = true },
+            fold = { enable = true },
             })
         end
+    },
+    {
+        "mbbill/undotree"
     },
 })
 

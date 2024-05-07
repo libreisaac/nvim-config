@@ -3,16 +3,6 @@ vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
 -- Helper functions
-local function file_exists(path)
-    local f = io.open(path, "r")
-    if (f) then
-        f.close(f)
-        return true
-    end
-
-    return false
-end
-
 local function toggle(option)
     local new_value = not vim.opt[option]:get()
     vim.opt[option] = new_value
@@ -23,23 +13,15 @@ local function options(description)
     return { noremap = true, silent = true, desc = description }
 end
 
--- Autoformatting
-local function auto_format()
-    local cwd = vim.fn.getcwd()
-    if file_exists(cwd .. "/Cargo.toml") then
-        vim.cmd(":!cargo fmt")
-    else
-        print("No formatting mechanism detected.")
-    end
-end
-
 -- Default chord tweaks
 vim.keymap.set("n", "gg", "gg0", { silent = true })
 vim.keymap.set("n", "G", "G$", { silent = true })
 
 -- Custom Chords
 vim.keymap.set("n", "<Leader>rt", function() toggle("relativenumber") end, options("Toggle relative line numbers"))
-vim.keymap.set("n", "<Leader>f", auto_format, options("Autoformat all files in the working directory"))
+vim.keymap.set("n", "<Leader>u", ":UndotreeToggle<CR>:UndotreeFocus<CR>", options("Toggle undo tree"))
+vim.keymap.set({ "n", "v", "x" }, "<S-Tab>", "<:redraw<CR>", options("Decrease indent"))
+vim.keymap.set({ "n", "v", "x" }, "<Tab>", ">:redraw<CR>", options("Increase indent"))
 vim.keymap.set("n", "<Leader>t", ":terminal<CR>", options("Open a terminal"))
 vim.keymap.set("t", "<Esc>", "<C-u>exit<CR>", options("Exit the terminal"))
 -- Fuzzy Find Chords
