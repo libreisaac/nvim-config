@@ -62,4 +62,7 @@ vim.keymap.set("n", "<Leader>sa", fzf.args, options("Search for an arg"))
 vim.keymap.set("n", "<Leader>st", fzf.tabs, options("Search for a tab"))
 -- Fuzzy Find Autocomplete
 local autocomplete_modes = { "n", "v", "i", }
-vim.keymap.set(autocomplete_modes, "<C-s><C-f>", fzf.complete_path, options("Insert a file path"))
+vim.keymap.set(autocomplete_modes, "<C-s><C-L>", fzf.complete_bline, options("Complete line based on currently focused buffer"))
+vim.keymap.set(autocomplete_modes, "<C-s><C-l>", fzf.complete_line, options("Complete line based on all open buffers"))
+vim.keymap.set(autocomplete_modes, "<C-s><C-p>", fzf.complete_path, options("Insert a path; files and directories"))
+vim.keymap.set(autocomplete_modes, "<C-s><C-f>", fzf.complete_file, options("Insert a file path"))
