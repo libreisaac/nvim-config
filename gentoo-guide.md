@@ -23,7 +23,9 @@ Now run `nvim`, and type `:Tutor`. Read through the tutorial, and follow along. 
 
 Once you've finished the nvim tutorial, run `:edit ./init.lua` to open the `init.lua` file. The `require` lines import different `lua` files; you can check each of them to see what they do.
 
-First, we `require fzf`, which loads the `fzf` plugin which is a submodule of this repository. Then we `require` each of the custom configuration files included in this repository.
+First, we install `lazy`, our plugin manager, and tell it to install `fzf-lua`.
+
+Finally, we `require` each of the custom configuration files included in this repository.
 
 Run `:cd lua/ide`, then type `:edit ./`, and hit tab. You should see a list of files in the `ide` repository. You can hit `tab` to cycle through them, then `enter` to complete the command with the currently selected option, or the up or down arrow key to write the option to the command line, where you can hit tab again, to select a directory and cycle through that.
 
