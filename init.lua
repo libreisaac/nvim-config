@@ -18,7 +18,49 @@ require("lazy").setup({
         config = function()
             require("fzf-lua").setup({})
         end
-    }
+    },
+    {
+        "nvim-treesitter/nvim-treesitter",
+        build = ":TSUpdate",
+        config = function ()
+        local configs = require("nvim-treesitter.configs")
+        configs.setup({
+            ensure_installed = {
+                "asm",
+                "bash",
+                "c",
+                "c_sharp",
+                "cmake",
+                "cpp",
+                "css",
+                "csv",
+                "diff",
+                "git_config",
+                "git_rebase",
+                "gitattributes",
+                "gitcommit",
+                "gitignore",
+                "gpg",
+                "html",
+                "javascript",
+                "json",
+                "lua",
+                "make",
+                "markdown",
+                "markdown_inline",
+                "nasm",
+                "python",
+                "rust",
+                "toml",
+                "xml",
+                "yaml",
+            },
+            sync_install = false,
+            highlight = { enable = true },
+            indent = { enable = true },
+            })
+        end
+    },
 })
 
 -- Configuration
