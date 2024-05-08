@@ -1,3 +1,6 @@
+-- Disable netrw
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
 -- Plugin
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
@@ -72,15 +75,20 @@ lazy_vim.setup({
             require("ranger-nvim").setup({ replace_netrw = true })
         end,
     },
-    {'VonHeikemen/lsp-zero.nvim', branch = 'v3.x'},
-    {'williamboman/mason.nvim'},
-    {'williamboman/mason-lspconfig.nvim'},
-    {'neovim/nvim-lspconfig'},
-    {'hrsh7th/cmp-nvim-lsp'},
-    {'hrsh7th/nvim-cmp'},
-    {'L3MON4D3/LuaSnip'},
+    { "VonHeikemen/lsp-zero.nvim", branch = "v3.x" },
+    { "williamboman/mason.nvim" },
+    { "williamboman/mason-lspconfig.nvim" },
+    { "neovim/nvim-lspconfig" },
+    { "hrsh7th/cmp-nvim-lsp" },
+    { "hrsh7th/nvim-cmp" },
+    { "L3MON4D3/LuaSnip" },
+    {
+        "nvim-tree/nvim-tree.lua",
+        dependencies = { "nvim-tree/nvim-web-devicons", },
+    },
 })
-
+-- Enable Nvim-Tree
+require("nvim-tree").setup()
 -- Configuration
 require "ide.autocmds"
 require "ide.options"

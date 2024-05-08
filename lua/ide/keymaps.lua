@@ -28,6 +28,7 @@ vim.keymap.set("n", "<Leader>un", ":UndotreeToggle<CR>:UndotreeFocus<CR>", optio
 vim.keymap.set("n", "<Leader>nv", ":vertical new<CR>", options("Open a new buffer split vertically"))
 vim.keymap.set("n", "<Leader>mx", ":!chmod +x %<CR>", options("Make the current file executable"))
 vim.keymap.set("n", "<Leader>nh", ":new<CR>", options("Open a new buffer split horizontally"))
+vim.keymap.set("n", "<Leader>et", ":NvimTreeToggle<CR>", options("Toggle nvim-tree view"))
 vim.keymap.set({ "n", "v", "x" }, "<S-Tab>", "<:redraw<CR>", options("Decrease indent"))
 vim.keymap.set({ "n", "v", "x" }, "<Tab>", ">:redraw<CR>", options("Increase indent"))
 vim.keymap.set("n", "<Leader>tr", ":terminal<CR>", options("Open a terminal"))
