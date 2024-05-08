@@ -22,7 +22,9 @@ vim.keymap.set("v", "J", ":m '>+1<CR>gv", options("Move highlighted lines down")
 
 -- Custom Chords
 vim.keymap.set("n", "<Leader>ex", function() require("ranger-nvim").open(true) end, options("Open ranger file explorer"))
+vim.keymap.set("n", "<Leader>tv", ":vertical split<CR>:terminal<CR>", options("Open a terminal in a vertical split"))
 vim.keymap.set("n", "<Leader>rt", function() toggle("relativenumber") end, options("Toggle relative line numbers"))
+vim.keymap.set("n", "<Leader>th", ":split<CR>:terminal<CR>", options("Open a terminal in a horizontal split"))
 vim.keymap.set({ "n", "v", "x" }, "<Leader>q", ":q<CR>:redraw<CR>", options("Close the current buffer"))
 vim.keymap.set("n", "<Leader>un", ":UndotreeToggle<CR>:UndotreeFocus<CR>", options("Toggle undo tree"))
 vim.keymap.set("n", "<Leader>nv", ":vertical new<CR>", options("Open a new buffer split vertically"))
@@ -31,7 +33,6 @@ vim.keymap.set("n", "<Leader>nh", ":new<CR>", options("Open a new buffer split h
 vim.keymap.set("n", "<Leader>et", ":NvimTreeToggle<CR>", options("Toggle nvim-tree view"))
 vim.keymap.set({ "n", "v", "x" }, "<S-Tab>", "<:redraw<CR>", options("Decrease indent"))
 vim.keymap.set({ "n", "v", "x" }, "<Tab>", ">:redraw<CR>", options("Increase indent"))
-vim.keymap.set("n", "<Leader>tr", ":terminal<CR>", options("Open a terminal"))
 vim.keymap.set("t", "<Esc>", "<C-u>exit<CR>", options("Exit the terminal"))
 -- Fuzzy Find Chords
 local fzf = require("fzf-lua")
