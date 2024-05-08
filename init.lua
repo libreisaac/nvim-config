@@ -96,3 +96,4 @@ require "ide.keymaps"
 require "ide.styles"
 require "ide.lsp"
 
+vim.cmd(":NvimTreeOpen")
