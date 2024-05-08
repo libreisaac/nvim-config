@@ -71,7 +71,14 @@ lazy_vim.setup({
         config = function()
             require("ranger-nvim").setup({ replace_netrw = true })
         end,
-    }
+    },
+    {'VonHeikemen/lsp-zero.nvim', branch = 'v3.x'},
+    {'williamboman/mason.nvim'},
+    {'williamboman/mason-lspconfig.nvim'},
+    {'neovim/nvim-lspconfig'},
+    {'hrsh7th/cmp-nvim-lsp'},
+    {'hrsh7th/nvim-cmp'},
+    {'L3MON4D3/LuaSnip'},
 })
 
 -- Configuration
@@ -79,4 +86,5 @@ require "ide.autocmds"
 require "ide.options"
 require "ide.keymaps"
 require "ide.styles"
+require "ide.lsp"
 

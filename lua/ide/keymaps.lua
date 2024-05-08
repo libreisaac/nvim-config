@@ -18,13 +18,15 @@ vim.keymap.set("n", "gg", "gg0", { silent = true })
 vim.keymap.set("n", "G", "G$", { silent = true })
 
 -- Custom Chords
-vim.keymap.set("n", "<Leader>e", function() require("ranger-nvim").open(true) end, options("Open ranger file explorer"))
+vim.keymap.set("n", "<Leader>ex", function() require("ranger-nvim").open(true) end, options("Open ranger file explorer"))
 vim.keymap.set("n", "<Leader>rt", function() toggle("relativenumber") end, options("Toggle relative line numbers"))
 vim.keymap.set({ "n", "v", "x" }, "<Leader>q", ":q<CR>:redraw<CR>", options("Close the current buffer"))
-vim.keymap.set("n", "<Leader>u", ":UndotreeToggle<CR>:UndotreeFocus<CR>", options("Toggle undo tree"))
+vim.keymap.set("n", "<Leader>un", ":UndotreeToggle<CR>:UndotreeFocus<CR>", options("Toggle undo tree"))
+vim.keymap.set("n", "<Leader>nv", ":vertical new<CR>", options("Open a new buffer split vertically."))
+vim.keymap.set("n", "<Leader>nh", ":new<CR>", options("Open a new buffer split horizontally."))
 vim.keymap.set({ "n", "v", "x" }, "<S-Tab>", "<:redraw<CR>", options("Decrease indent"))
 vim.keymap.set({ "n", "v", "x" }, "<Tab>", ">:redraw<CR>", options("Increase indent"))
-vim.keymap.set("n", "<Leader>t", ":terminal<CR>", options("Open a terminal"))
+vim.keymap.set("n", "<Leader>tr", ":terminal<CR>", options("Open a terminal"))
 vim.keymap.set("t", "<Esc>", "<C-u>exit<CR>", options("Exit the terminal"))
 -- Fuzzy Find Chords
 local fzf = require("fzf-lua")
@@ -50,3 +52,24 @@ vim.keymap.set(autocomplete_modes, "<C-s><C-L>", fzf.complete_bline, options("Co
 vim.keymap.set(autocomplete_modes, "<C-s><C-l>", fzf.complete_line, options("Complete line based on all open buffers"))
 vim.keymap.set(autocomplete_modes, "<C-s><C-p>", fzf.complete_path, options("Insert a path; files and directories"))
 vim.keymap.set(autocomplete_modes, "<C-s><C-f>", fzf.complete_file, options("Insert a file path"))
+
+-- LSP Keymaps
+local function bind_lsp_keys(buffer)
+    local function opts(description)
+        local o = options(description)
+        o.buffer = buffer
+        return o
+    end
+    vim.keymap.set("n", "<Leader>do", function() vim.diagnostic.open_float() end, opts("Open diagnostics in floating window"))
+    vim.keymap.set("n", "<Leader>ws", function() vim.lsp.buf.workspace_symbol() end, opts("Query symbols in workspace"))
+    vim.keymap.set("n", "<Leader>dp", function() vim.diagnostic.goto_prev() end, opts("Go to previous disagnostic"))
+    vim.keymap.set("n", "<Leader>di", function() vim.lsp.buf.hover() end, opts("Display information about symbol"))
+    vim.keymap.set("n", "<Leader>dr", function() vim.lsp.buf.references() end, opts("List references to symbol"))
+    vim.keymap.set("n", "<Leader>dn", function() vim.diagnostic.goto_next() end, opts("Go to next diagnostic"))
+    vim.keymap.set("n", "<Leader>ca", function() vim.lsp.buf.code_action() end, opts("Open code actions list"))
+    vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts("Display signature help"))
+    vim.keymap.set("n", "<Leader>dd", function() vim.lsp.buf.definition() end, opts("Go to definition"))
+    vim.keymap.set("n", "<Leader>rs", function() vim.lsp.buf.rename() end, opts("Rename symbol"))
+end
+
+return { bind_lsp_keys = bind_lsp_keys }
