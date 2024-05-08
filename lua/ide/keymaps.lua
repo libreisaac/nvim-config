@@ -52,7 +52,6 @@ vim.keymap.set(autocomplete_modes, "<C-s><C-L>", fzf.complete_bline, options("Co
 vim.keymap.set(autocomplete_modes, "<C-s><C-l>", fzf.complete_line, options("Complete line based on all open buffers"))
 vim.keymap.set(autocomplete_modes, "<C-s><C-p>", fzf.complete_path, options("Insert a path; files and directories"))
 vim.keymap.set(autocomplete_modes, "<C-s><C-f>", fzf.complete_file, options("Insert a file path"))
-
 -- LSP Keymaps
 local function bind_lsp_keys(buffer)
     local function opts(description)
@@ -71,5 +70,8 @@ local function bind_lsp_keys(buffer)
     vim.keymap.set("n", "<Leader>dd", function() vim.lsp.buf.definition() end, opts("Go to definition"))
     vim.keymap.set("n", "<Leader>rs", function() vim.lsp.buf.rename() end, opts("Rename symbol"))
 end
+-- Move selection
+vim.keymap.set("v", "K", ":m '<-2<CR>gv", options("Move highlighted lines up"))
+vim.keymap.set("v", "J", ":m '>+1<CR>gv", options("Move highlighted lines down"))
 
 return { bind_lsp_keys = bind_lsp_keys }
