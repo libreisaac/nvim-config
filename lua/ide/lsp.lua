@@ -6,7 +6,7 @@ local cmp_select = { behavior = cmp.SelectBehavior.Select }
 local cmp_mappings = cmp.mapping.preset.insert({
     ["<C-j>"] = cmp.mapping.select_next_item(cmp_select),
     ["<C-k>"] = cmp.mapping.select_prev_item(cmp_select),
-    ["<C-l>"] = cmp.mapping.confirm({select = true}),
+    ["<C-l>"] = cmp.mapping.confirm({ select = true }),
     ["<C-Space>"] = cmp.mapping.complete(),
 })
 cmp.setup({ mapping = cmp_mappings })

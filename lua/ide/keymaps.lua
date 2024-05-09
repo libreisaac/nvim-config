@@ -75,5 +75,6 @@ local function bind_lsp_keys(buffer)
     vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts("Display signature help"))
     vim.keymap.set("n", "<Leader>dd", function() vim.lsp.buf.definition() end, opts("Go to definition"))
     vim.keymap.set("n", "<Leader>rs", function() vim.lsp.buf.rename() end, opts("Rename symbol"))
+    vim.keymap.set("n", "<Leader>fm", ":LspZeroFormat<CR>", opts("Format code"))
 end
 return { bind_lsp_keys = bind_lsp_keys }
