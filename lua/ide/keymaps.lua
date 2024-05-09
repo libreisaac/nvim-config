@@ -34,6 +34,7 @@ vim.keymap.set("n", "<Leader>et", ":NvimTreeToggle<CR>", options("Toggle nvim-tr
 vim.keymap.set({ "n", "v", "x" }, "<S-Tab>", "<:redraw<CR>", options("Decrease indent"))
 vim.keymap.set({ "n", "v", "x" }, "<Tab>", ">:redraw<CR>", options("Increase indent"))
 vim.keymap.set("t", "<Esc>", "<C-u>exit<CR>", options("Exit the terminal"))
+vim.keymap.set("n", "<Leader>sv", ":w<CR>", options("Save the buffer"))
 -- Fuzzy Find Chords
 local fzf = require("fzf-lua")
 vim.keymap.set("n", "<Leader>sC", fzf.command_history, options("Search for command from history"))
